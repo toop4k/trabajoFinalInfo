@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/musOnDeath.ogg-e1e2fefe21c631eb57acb7f51ead68dd.oggstr"
+
+[deps]
+
+source_file="res://Audio/musOnDeath.ogg"
+dest_files=[ "res://.import/musOnDeath.ogg-e1e2fefe21c631eb57acb7f51ead68dd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

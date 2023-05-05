@@ -1,0 +1,199 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/PlayerStart.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Tiles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Port2.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Port.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Spike.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/CamPlayerFollow.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/GravityFlip.tscn" type="PackedScene" id=7]
+
+[node name="Mundo2" type="Node2D"]
+
+[node name="Tiles" parent="." instance=ExtResource( 2 )]
+position = Vector2( 224, 224 )
+tile_data = PoolIntArray( -393224, 9, 0, -458709, 9, 0, -327688, 9, 0, -393197, 16, 0, -393196, 16, 0, -393195, 16, 0, -393194, 16, 0, -393173, 9, 0, -262152, 9, 0, -327637, 9, 0, -196616, 9, 0, -262101, 9, 0, -131080, 9, 0, -196565, 9, 0, -65544, 9, 0, -131047, 16, 0, -131046, 16, 0, -131029, 9, 0, -8, 9, 0, -65493, 9, 0, 65528, 9, 0, 43, 9, 0, 131064, 9, 0, 65579, 9, 0, 196600, 9, 0, 131115, 9, 0, 262136, 9, 0, 196613, 17, 0, 196614, 17, 0, 196651, 9, 0, 327672, 9, 0, 262187, 9, 0, 393208, 9, 0, 327723, 9, 0, 458744, 9, 0, 393259, 9, 0, 524280, 9, 0, 458795, 9, 0, 589816, 9, 0, 524331, 9, 0, 655352, 9, 0, 655353, 17, 0, 655354, 17, 0, 655355, 17, 0, 655356, 17, 0, 655357, 17, 0, 655358, 17, 0, 655359, 17, 0, 589824, 17, 0, 589825, 17, 0, 589826, 17, 0, 589827, 17, 0, 589828, 17, 0, 589829, 17, 0, 589830, 17, 0, 589831, 17, 0, 589832, 17, 0, 589833, 17, 0, 589834, 17, 0, 589835, 17, 0, 589836, 17, 0, 589837, 17, 0, 589838, 17, 0, 589839, 17, 0, 589840, 17, 0, 589841, 17, 0, 589842, 17, 0, 589843, 17, 0, 589844, 17, 0, 589845, 17, 0, 589846, 17, 0, 589847, 17, 0, 589848, 17, 0, 589849, 17, 0, 589850, 17, 0, 589851, 17, 0, 589852, 17, 0, 589853, 17, 0, 589854, 17, 0, 589855, 17, 0, 589856, 17, 0, 589857, 17, 0, 589858, 17, 0, 589859, 17, 0, 589860, 17, 0, 589861, 17, 0, 589862, 17, 0, 589863, 17, 0, 589864, 17, 0, 589865, 17, 0, 589866, 17, 0, 589867, 9, 0, 720888, 9, 0, 720889, 9, 0, 720890, 9, 0, 720891, 9, 0, 720892, 9, 0, 720893, 9, 0, 720894, 9, 0, 720895, 9, 0, 655360, 9, 0, 655361, 9, 0, 655362, 9, 0, 655363, 9, 0, 655364, 9, 0, 655365, 9, 0, 655366, 9, 0, 655367, 9, 0, 655368, 9, 0, 655369, 9, 0, 655370, 9, 0, 655371, 9, 0, 655372, 9, 0, 655373, 9, 0, 655374, 9, 0, 655375, 9, 0, 655376, 9, 0, 655377, 9, 0, 655378, 9, 0, 655379, 9, 0, 655380, 9, 0, 655381, 9, 0, 655382, 9, 0, 655383, 9, 0, 655384, 9, 0, 655385, 9, 0, 655386, 9, 0, 655387, 9, 0, 655388, 9, 0, 655389, 9, 0, 655390, 9, 0, 655391, 9, 0, 655392, 9, 0, 655393, 9, 0, 655394, 9, 0, 655395, 9, 0, 655396, 9, 0, 655397, 9, 0, 655398, 9, 0, 655399, 9, 0, 655400, 9, 0, 655401, 9, 0, 655402, 9, 0, 655403, 9, 0, 786424, 9, 0, 786425, 9, 0, 786426, 9, 0, 786427, 9, 0, 786428, 9, 0, 786429, 9, 0, 786430, 9, 0, 786431, 9, 0, 720896, 9, 0, 720897, 9, 0, 720898, 9, 0, 720899, 9, 0, 720900, 9, 0, 720901, 9, 0, 720902, 9, 0, 720903, 9, 0, 720904, 9, 0, 720905, 9, 0, 720906, 9, 0, 720907, 9, 0, 720908, 9, 0, 720909, 9, 0, 720910, 9, 0, 720911, 9, 0, 720912, 9, 0, 720913, 9, 0, 720914, 9, 0, 720915, 9, 0, 720916, 9, 0, 720917, 9, 0, 720918, 9, 0, 720919, 9, 0, 720920, 9, 0, 720921, 9, 0, 720922, 9, 0, 720923, 9, 0, 720924, 9, 0, 720925, 9, 0, 720926, 9, 0, 720927, 9, 0, 720928, 9, 0, 720929, 9, 0, 720930, 9, 0, 720931, 9, 0, 720932, 9, 0, 720933, 9, 0, 720934, 9, 0, 720935, 9, 0, 720936, 9, 0, 720937, 9, 0, 720938, 9, 0, 720939, 9, 0, 851960, 9, 0, 851961, 9, 0, 851962, 9, 0, 851963, 9, 0, 851964, 9, 0, 851965, 9, 0, 851966, 9, 0, 851967, 9, 0, 786432, 9, 0, 786433, 9, 0, 786434, 9, 0, 786435, 9, 0, 786436, 9, 0, 786437, 9, 0, 786438, 9, 0, 786439, 9, 0, 786440, 9, 0, 786441, 9, 0, 786442, 9, 0, 786443, 9, 0, 786444, 9, 0, 786445, 9, 0, 786446, 9, 0, 786447, 9, 0, 786448, 9, 0, 786449, 9, 0, 786450, 9, 0, 786451, 9, 0, 786452, 9, 0, 786453, 9, 0, 786454, 9, 0, 786455, 9, 0, 786456, 9, 0, 786457, 9, 0, 786458, 9, 0, 786459, 9, 0, 786460, 9, 0, 786461, 9, 0, 786462, 9, 0, 786463, 9, 0, 786464, 9, 0, 786465, 9, 0, 786466, 9, 0, 786467, 9, 0, 786468, 9, 0, 786469, 9, 0, 786470, 9, 0, 786471, 9, 0, 786472, 9, 0, 786473, 9, 0, 786474, 9, 0, 786475, 9, 0 )
+
+[node name="PlayerStart" parent="." instance=ExtResource( 1 )]
+position = Vector2( 44, 405 )
+
+[node name="Blood" type="Node" parent="."]
+
+[node name="Killers" type="CanvasLayer" parent="."]
+layer = -2
+follow_viewport_enable = true
+
+[node name="Spikes" type="Node" parent="Killers"]
+
+[node name="Spike1" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 438, 500 )
+
+[node name="Spike0" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 800, -16 )
+scale = Vector2( 50, 1 )
+
+[node name="Spike2" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1292, 496 )
+
+[node name="Spike3" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1256, 496 )
+
+[node name="Spike4" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1219, 496 )
+
+[node name="Spike5" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1183, 496 )
+
+[node name="Spike6" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1150, 496 )
+
+[node name="Spike7" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1114, 496 )
+
+[node name="Spike8" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1077, 496 )
+
+[node name="Spike9" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1041, 496 )
+
+[node name="Spike10" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1577, 496 )
+
+[node name="Spike11" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1541, 496 )
+
+[node name="Spike12" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1504, 496 )
+
+[node name="Spike13" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1468, 496 )
+
+[node name="Spike14" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1435, 496 )
+
+[node name="Spike15" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1399, 496 )
+
+[node name="Spike16" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1362, 496 )
+
+[node name="Spike17" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1326, 496 )
+
+[node name="Spike18" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 721, 496 )
+
+[node name="Spike19" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 685, 496 )
+
+[node name="Spike20" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 648, 496 )
+
+[node name="Spike21" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 612, 496 )
+
+[node name="Spike22" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 579, 496 )
+
+[node name="Spike23" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 543, 496 )
+
+[node name="Spike24" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 506, 496 )
+
+[node name="Spike25" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 470, 496 )
+
+[node name="Spike26" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 1006, 496 )
+
+[node name="Spike27" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 970, 496 )
+
+[node name="Spike28" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 933, 496 )
+
+[node name="Spike29" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 897, 496 )
+
+[node name="Spike30" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 864, 496 )
+
+[node name="Spike31" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 828, 496 )
+
+[node name="Spike32" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 791, 496 )
+
+[node name="Spike33" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 755, 496 )
+
+[node name="Spike42" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 405, 496 )
+
+[node name="Spike43" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 369, 496 )
+
+[node name="Spike44" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 332, 496 )
+
+[node name="Spike45" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 296, 496 )
+
+[node name="Spike46" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 263, 496 )
+
+[node name="Spike47" parent="Killers/Spikes" instance=ExtResource( 5 )]
+position = Vector2( 227, 496 )
+
+[node name="CamPlayerFollow" parent="." instance=ExtResource( 6 )]
+limit_left = 0
+limit_top = 0
+limit_right = 1600
+limit_bottom = 608
+
+[node name="Port" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1060, 258 )
+script = ExtResource( 3 )
+
+[node name="GravityFlips" type="Node" parent="."]
+
+[node name="GravityFlip13" parent="GravityFlips" instance=ExtResource( 7 )]
+position = Vector2( 203, 400 )
+
+[node name="GravityFlip14" parent="GravityFlips" instance=ExtResource( 7 )]
+position = Vector2( 203, 368 )
+
+[node name="GravityFlip15" parent="GravityFlips" instance=ExtResource( 7 )]
+position = Vector2( 235, 400 )
+
+[node name="GravityFlip16" parent="GravityFlips" instance=ExtResource( 7 )]
+position = Vector2( 235, 368 )
+
+[node name="GravityFlip17" parent="GravityFlips" instance=ExtResource( 7 )]
+position = Vector2( 349, 113 )
+direction = "1"
+
+[node name="GravityFlip18" parent="GravityFlips" instance=ExtResource( 7 )]
+position = Vector2( 349, 81 )
+direction = "1"
+
+[node name="GravityFlip19" parent="GravityFlips" instance=ExtResource( 7 )]
+position = Vector2( 381, 113 )
+direction = "1"
+
+[node name="GravityFlip20" parent="GravityFlips" instance=ExtResource( 7 )]
+position = Vector2( 381, 81 )
+direction = "1"
+
+[node name="GravityFlip21" parent="GravityFlips" instance=ExtResource( 7 )]
+position = Vector2( 695, 447 )
+
+[node name="GravityFlip22" parent="GravityFlips" instance=ExtResource( 7 )]
+position = Vector2( 695, 415 )
+
+[node name="GravityFlip23" parent="GravityFlips" instance=ExtResource( 7 )]
+position = Vector2( 727, 447 )
+
+[node name="GravityFlip24" parent="GravityFlips" instance=ExtResource( 7 )]
+position = Vector2( 727, 415 )

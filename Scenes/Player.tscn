@@ -1,0 +1,84 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Resources/Menu.tres" type="Animation" id=1]
+[ext_resource path="res://Resources/Run.tres" type="Animation" id=2]
+[ext_resource path="res://Resources/Jump.tres" type="Animation" id=3]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/kidSpritesheet.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Fall.tres" type="Animation" id=7]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "Fall"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "Jump"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "Run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachine" id=11]
+states/Fall/node = SubResource( 1 )
+states/Fall/position = Vector2( 826, 145 )
+states/Idle/node = SubResource( 2 )
+states/Idle/position = Vector2( 612, 155 )
+states/Jump/node = SubResource( 3 )
+states/Jump/position = Vector2( 697, 51 )
+states/Run/node = SubResource( 4 )
+states/Run/position = Vector2( 489, 65 )
+transitions = [ "Idle", "Jump", SubResource( 5 ), "Jump", "Fall", SubResource( 6 ), "Fall", "Idle", SubResource( 7 ), "Idle", "Run", SubResource( 8 ), "Run", "Idle", SubResource( 9 ), "Run", "Jump", SubResource( 10 ) ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=12]
+
+[node name="Player" type="KinematicBody2D" groups=["Kid"]]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+hframes = 5
+vframes = 3
+frame = 3
+region_rect = Rect2( 0, 99, 32, 20 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( 6, -5, 7, -4, 7, 15, 6, 16, -3, 16, -4, 15, -4, -4, -3, -5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Fall = ExtResource( 7 )
+anims/Idle = ExtResource( 1 )
+anims/Jump = ExtResource( 3 )
+anims/Run = ExtResource( 2 )
+
+[node name="SFXplayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area"]
+visible = false
+polygon = PoolVector2Array( 7, -5, 7, 16, -4, 16, -4, -5 )
+
+[node name="VineCheck" type="RayCast2D" parent="."]
+position = Vector2( 0, 7 )
+enabled = true
+cast_to = Vector2( 10, 0 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 11 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 12 )
